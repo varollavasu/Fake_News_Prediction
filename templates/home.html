@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fake News Prediction</title>
+    <form method="POST" action="{{ url_for('predict') }}">
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            width: 50%;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        textarea {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        input[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        
+        .error {
+            color: red;
+            margin-top: 20px;
+        }
+        
+        p {
+            color: #333;
+            font-size: 1.2em;
+        }
+        
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            color: #007BFF;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+    </style>
+    <div class="container">
+        <h1>Fake News Prediction</h1>
+        <form action="/predict" method="POST">
+            <textarea name="content" rows="10" cols="30" placeholder="Enter the news content here..."></textarea><br>
+            <input type="submit" value="Predict">
+        </form>
+        {% if error_message %}
+        <p class="error">{{ error_message }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
